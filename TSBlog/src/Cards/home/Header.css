@@ -1,0 +1,24 @@
+
+/* acceder a un id */
+/* Path: TSBlog/src/Cards/Header.css */
+#TituloBlog{
+    font-family: 'Romie-Regular';
+    font-size: 60px;
+    line-height: 60px;
+    letter-spacing: -4px;
+    padding-top: 0;
+    color: rgb(0, 0, 0);
+    text-align: center;
+
+}
+
+#header{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 0.5px solid black;
+}
+
+   

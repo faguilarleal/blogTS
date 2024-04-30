@@ -1,0 +1,28 @@
+#imangen-principal{
+    margin: 10px;
+    align-self: center;
+    width: 500px;
+    height: auto;
+}
+
+#contenido1{
+    /* style={{
+        alignItems:'center', display:'flex', justifyContent:'center',width:'100%', height:'650px'}} */
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    background-image:url('./src/img/tay1.jpg'); 
+    background-size: cover;
+
+}
+
+#conoce{
+    font-size: 2.5em;
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+    padding: 0;
+    font-family: 'Romie-Regular';
+}
+

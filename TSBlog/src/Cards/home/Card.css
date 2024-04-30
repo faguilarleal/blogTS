@@ -1,0 +1,32 @@
+
+
+.card{
+    color: white;
+    padding: 10px;
+    width:25em;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagen-articulo{
+    width: 100%;
+    height: 300px;
+    size: cover;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.imagen-articulo:hover{
+    opacity: 0.5;
+    transform: scale(1.1);
+}
+
+h2{
+    color: black;
+    font-size: 1.5em;
+    font-family: 'Romie-Regular';
+}
