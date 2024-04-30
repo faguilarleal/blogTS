@@ -2,6 +2,7 @@ import './App.css'
 import Header from './Cards/home/Header'
 import Content from './Cards/home/Content'
 import Articulos from './Cards/home/Articulos'
+import Login from './Cards/logIn/Login.jsx'
 
 
 function App() {
@@ -15,11 +16,12 @@ function App() {
       //     <Articulos/>
       // </div>
       <div id = "layout" >
-          <Header/>
+          {/* <Header/>
     
 
           <Content/>
-          <Articulos/>
+          <Articulos/> */}
+          <Login/>
           
       </div>
   )

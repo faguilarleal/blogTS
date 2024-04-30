@@ -1,6 +1,6 @@
 import Header from "./Cards/home/Header.jsx";
 
-function Approuter({ruta, setRuta}) {
+function Approuter(ruta) {
     // <Header/>
 
     // <Content/>

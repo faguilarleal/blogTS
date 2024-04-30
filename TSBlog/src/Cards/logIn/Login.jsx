@@ -1,7 +1,6 @@
-import "./login.css"
 import { useState } from 'react'
 
-function Login({ruta, setRuta}){
+function Login(){
 
     const [user, setUser] = useState("")
     const [cont, setCont] = useState("")
@@ -17,9 +16,10 @@ function Login({ruta, setRuta}){
     function vereficar(){
     
         if(user=="francis" & cont=="123"){
-            setRuta("home")
+            // setRuta("home")
             //cambiar la ruta a /home
-            window.history.pushState({}, "Home", "/home")
+            // window.history.pushState({}, "Home", "/home")
+            alert("holaaa")
         }
     }
 
