@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import './Login.css'
 
 function Login(){
 
@@ -26,8 +27,9 @@ function Login(){
     return (
         <div className="login">
             {/* login funcional */}
-            <h1>Login</h1>
+            
             <div className="inputs">
+                <h1>Login</h1>
                 <label>Usuario</label>
                 <br />
                 <input type="text" name="usuario" onChange={cambiarUsuario} />
