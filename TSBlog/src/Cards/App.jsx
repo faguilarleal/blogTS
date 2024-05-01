@@ -1,12 +1,14 @@
 import './App.css'
-import { useEffect, useState} from 'react'
-import Approuter from './Cards/router.jsx'
+import { useEffect, useState, createContext } from 'react'
+import Approuter from './router.jsx'
 
-// const idContext = createContext(null)
+export const LogContext = createContext(null)
+const idContext = createContext(null)
 
 
 function App() {
-  // const [idActual, setIdActual] = useState(null)
+  const [logi, setLog] = useState(false)
+  const [idActual, setIdActual] = useState(null)
   
   const [ruta, setRuta] = useState('home')
 
@@ -22,11 +24,13 @@ function App() {
   }, [ruta])
 
   return (  
-    // <LogContext.Provider value={{log, setLog}}>
+    <LogContext.Provider value={{logi, setLog}}>
+      <idContext.Provider value={{idActual, setIdActual}}>
       <div id = "layout" >
         <Approuter ruta = {ruta} setRuta={setRuta} />
       </div>
-    // </LogContext.Provider>   
+      </idContext.Provider>
+    </LogContext.Provider>   
       
   )
 }
