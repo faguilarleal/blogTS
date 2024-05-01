@@ -1,7 +1,41 @@
 import PropTypes from 'prop-types';
 import './Detalle.css'
+import React from 'react'
+import Loading from '../../Loading/Loading.jsx'
+
 
 function Detalle(props) { 
+    const [listadoArticulos, setListado] = React.useState([])
+
+    const [loading, setLoading] = React.useState(true); // Estado para indicar si se está cargando
+
+    async function llamarAPI() {
+        try {
+            let artics = await fetch('http://127.0.0.1:3000/blogs/${props.id}')
+            let articulos = await artics.json()
+            console.log(articulos[0])
+            setListado(articulos) // Actualiza el estado de listadoArticulos con los datos obtenidos
+            setLoading(false) // cambia el estado de loading a false
+        }
+        catch (e) {
+            console.error("Error al cargar datos de la API",e)
+            setLoading(false) // cambia el estado de loading a false
+        }
+           
+    }
+
+
+    React.useEffect(() => {
+        llamarAPI()
+    }, [])
+
+    // Condición para mostrar un estado vacío cuando no hay publicaciones
+    if (loading) {
+        return <Loading />;
+    } else if (listadoArticulos.length === 0) {
+        return <div><img src='https://media.tenor.com/TlEiCCBTkNUAAAAi/alice-waiting.gif'></img>No hay publicaciones</div>; // Muestra un mensaje de estado vacío
+    }
+
     return (
         <div id='detalle'>
             {/* {props.title}
@@ -22,10 +56,7 @@ function Detalle(props) {
 
 
 Detalle.propTypes = {
-    title: PropTypes.string.isRequired,
-    content: PropTypes.string.isRequired,
-    author: PropTypes.string.isRequired,
-    imagen: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired
 };
 
 export default Detalle;

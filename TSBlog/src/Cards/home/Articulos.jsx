@@ -2,11 +2,12 @@ import React from 'react';
 import Cards from './Card.jsx';
 import Loading from './Loading.jsx';
 import './Articulos.css';
+import PropTypes from 'prop-types';
 
 
 // obtener articulos de la API y mostrarlos como lista con cards 
 
-function Articulos() { 
+function Articulos({ruta, setRuta}) { 
     const [listadoArticulos, setListado] = React.useState([])
 
     const [loading, setLoading] = React.useState(true); // Estado para indicar si se está cargando
@@ -45,7 +46,7 @@ function Articulos() {
             <div id='articulos'>
             {listadoArticulos.map(articulo => {
                     return <div key={articulo.title} className='cards'>
-                    <Cards title = {articulo.title} content={articulo.content} imagen={articulo.imagen}/>
+                    <Cards id={articulo.id} title = {articulo.title} content={articulo.content} imagen={articulo.imagen} setRuta={setRuta} ruta={ruta}/>
                 </div>
                 }  
                 )}  
@@ -56,3 +57,8 @@ function Articulos() {
 
 
 export default Articulos; 
+
+Articulos.propTypes = {
+    setRuta: PropTypes.object.isRequired,
+    ruta: PropTypes.string.isRequired
+}

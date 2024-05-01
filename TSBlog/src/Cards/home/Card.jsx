@@ -1,26 +1,34 @@
 import PropTypes from 'prop-types';
-import './Card.css'
+import './Card.css';
 
 function Cards(props) { 
+
+    const handleClick = () => {
+        alert('Has hecho click en ' + props.id);
+        props.setRuta("home")
+            //cambiar la ruta a /home
+            window.history.pushState({}, props.ruta, "/home")
+            // alert("holaaa")
+    };
+
     return (
         <div className='card'>
-            {/* {props.title}
-            {props.content} */}
-            <div id='card-content'>
-                <img className='imagen-articulo' src={props.imagen}></img>    
+            <div id='card-content'  onClick={handleClick}>
+                <img className='imagen-articulo' src={props.imagen} alt={props.title} />   
             </div>
-                <h2>{props.title}</h2>
+            <h2>{props.title}</h2>
         </div>
     );
 }
 
-
 Cards.propTypes = {
-    title: PropTypes.string.isRequired,
-    content: PropTypes.string.isRequired,
-    author: PropTypes.string.isRequired,
-    imagen: PropTypes.string.isRequired,
+    title: PropTypes.string,
+    content: PropTypes.string,
+    author: PropTypes.string,
+    imagen: PropTypes.string,
+    setRuta: PropTypes.func.isRequired, // Cambiado de `object` a `func`
+    ruta: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired
 };
 
 export default Cards;
-

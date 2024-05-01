@@ -2,6 +2,13 @@ import './Publicar.css';
 
 
 function Publicar(){
+
+    
+    
+    function handleClick(){
+
+    }
+
     return(
         <div id="publicar">
             <h1>Publicar</h1>
@@ -14,7 +21,7 @@ function Publicar(){
                 <input type='text'></input>
                 <label>Imagen</label>
                 <input type='text'></input>
-                <button>Publicar</button>
+                <button onClick={handleClick}>Publicar</button>
         </div>
     )
 }

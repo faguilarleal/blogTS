@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import './Login.css'
+import PropTypes from 'prop-types'
 
-function Login(){
+function Login({ruta, setRuta}){
 
     const [user, setUser] = useState("")
     const [cont, setCont] = useState("")
@@ -17,10 +18,10 @@ function Login(){
     function vereficar(){
     
         if(user=="francis" & cont=="123"){
-            // setRuta("home")
+            setRuta("home")
             //cambiar la ruta a /home
-            // window.history.pushState({}, "Home", "/home")
-            alert("holaaa")
+            window.history.pushState({}, ruta, "/home")
+            // alert("holaaa")
         }
     }
 
@@ -47,3 +48,8 @@ function Login(){
 }
 
 export default Login
+
+Login.propTypes = {
+    setRuta: PropTypes.func.isRequired,
+    ruta: PropTypes.string.isRequired
+}

@@ -1,13 +1,20 @@
 import './App.css'
-import Header from './Cards/home/Header'
-import Content from './Cards/home/Content'
-import Articulos from './Cards/home/Articulos'
-import Login from './Cards/logIn/Login.jsx'
-import Detalle from './Cards/detalle/Detalle.jsx'
-import Publicar from './Cards/publicar/Publicar.jsx'
+import { useEffect, useState } from 'react'
+import Approuter from './Cards/router.jsx'
 
 
 function App() {
+
+  const [ruta, setRuta] = useState('home')
+
+  useEffect(() => {
+    console.log(window.location.pathname)
+    setRuta(window.location.pathname)
+    if(window.location.pathname === '/'){
+      window.history.pushState({}, ruta, "/home")
+      setRuta('/home')
+    } 
+  }, [ruta])
 
   return (
       document.getElementById("root").style.width = '100%',
@@ -15,19 +22,7 @@ function App() {
       document.body.style.margin = 0,
      
       <div id = "layout" >
-        {/* <Header/>
-        <Detalle></Detalle> */}
-          {/* <Header/>
-    
-
-          <Content/>
-          <Articulos/> */}
-          {/* <Header/>
-          <Login/> */}
-
-          <Header/>
-          <Publicar></Publicar>
-          
+        <Approuter ruta = {ruta} setRuta={setRuta} />
       </div>
   )
 }
