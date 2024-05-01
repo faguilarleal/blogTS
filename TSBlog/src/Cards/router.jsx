@@ -4,23 +4,35 @@ import Articulos from "./home/Articulos.jsx";
 import PropTypes from 'prop-types'
 import Login from "./log/Login.jsx";
 import Publicar from "./publicar/Publicar.jsx"
+import Detalle  from "./detalle/Detalle.jsx";
+import { createContext, useState} from 'react'
+
+export const LogContext = createContext(null)
+
 
 function Approuter({ruta, setRuta}) {
+
+  const [logi, setLog] = useState('jola')
     
   switch (ruta) {
     case "/home":
         console.log("home")
       return (<>
-        <Header ruta={ruta} setRuta={setRuta}></Header>
-        <Content></Content>
-        <Articulos ruta={ruta} setRuta={setRuta}></Articulos>
+        <LogContext.Provider value={{logi, setLog}}>
+
+            <Header ruta={ruta} setRuta={setRuta}></Header>
+            <Content></Content>
+            <Articulos ruta={ruta} setRuta={setRuta}></Articulos>
+        </LogContext.Provider>   
 
         </>
       )
       
-    case "/articulos":
+    case "/detalle":
         return (<>
-        
+        <Header ruta={ruta} setRuta={setRuta}></Header>
+
+            <Detalle></Detalle>
         
         </>)
 

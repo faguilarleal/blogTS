@@ -4,10 +4,9 @@ import './Card.css';
 function Cards(props) { 
 
     const handleClick = () => {
-        alert('Has hecho click en ' + props.id);
-        props.setRuta("home")
+        props.setRuta("/detalle")
             //cambiar la ruta a /home
-            window.history.pushState({}, props.ruta, "/home")
+        window.history.pushState({}, props.ruta, "/detalle")
             // alert("holaaa")
     };
 
