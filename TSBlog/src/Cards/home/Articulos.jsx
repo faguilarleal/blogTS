@@ -36,6 +36,7 @@ function Articulos() {
         llamarAPI()
     }, [])
 
+    
     // Condición para mostrar un estado vacío cuando no hay publicaciones
     if (loading) {
         return <Loading />;
@@ -57,7 +58,7 @@ function Articulos() {
             <div id='articulos'>
             {listadoArticulos.map(articulo => {
                     return <div key={articulo.title} className='cards'>
-                    <Cards id={articulo.id} title = {articulo.title} content={articulo.content} imagen={articulo.imagen} setRuta={setRuta} ruta={ruta}/>
+                    <Cards id={articulo.id} title = {articulo.title} content={articulo.content} imagen={articulo.imagen} />
                 </div>
                 }  
                 )}  

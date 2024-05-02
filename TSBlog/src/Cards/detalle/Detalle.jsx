@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
 import './Detalle.css'
-import { idContext, LogContext } from '../App';
+import { idContext } from '../App';
+// import { LogContext} from '../App';
 import { useContext, useEffect, useState } from 'react';
 
 function Detalle() { 
 
     const {idActual} = useContext(idContext)
-    const {logi} = useContext(LogContext)
+    // const {logi} = useContext(LogContext)
 
     const [info, setInfo] = useState(null)
 
@@ -27,9 +28,9 @@ function Detalle() {
         getArticulo()
     }, [])
 
-    function handleClick(){
+    // function handleClick(){
 
-    }
+    // }
 
     return (
         info === null ? <div>Cargando...</div> :
@@ -39,8 +40,8 @@ function Detalle() {
             <p>{info.content}</p>
             <h3 id='autor'>{info.author}</h3>
 
-            {logi ? <> <div id='admin-buttons'><button  onClick={handleClick}> Eliminar </button> <br></br>
-            <button onClick={handleClick}> Editar </button></div> </>: <></>}
+            {/* {logi ? <> <div id='admin-buttons'><button  onClick={handleClick}> Eliminar </button> <br></br>
+            <button onClick={handleClick}> Editar </button></div> </>: <></>} */}
       
         </div>
     );

@@ -1,3 +1,4 @@
+import Admin from "./admin/Admin.jsx";
 import Header from "./home/Header.jsx";
 import Content from "./home/Content.jsx";
 import Articulos from "./home/Articulos.jsx";
@@ -40,11 +41,19 @@ function Approuter() {
         <Header ></Header>
         <Login></Login>
         </>)
+
+    case "/admin":
+      return(<>
+      <Header></Header>
+        <Admin></Admin>
+      </>)
     default:
         return (<>
             <Header></Header>
               <Content></Content>
               <Articulos ></Articulos>
+        <Footer></Footer>
+
               </>
             )
   }
