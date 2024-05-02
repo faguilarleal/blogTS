@@ -18,3 +18,12 @@
     align-self: flex-end;
     padding-right: 100px;
 }
+
+#admin-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-self: flex-end;
+    padding-right: 50px;
+
+}

@@ -4,6 +4,7 @@ import Approuter from './router.jsx'
 
 export const LogContext = createContext(null)
 export const idContext = createContext(null)
+// export const userContext = createContext(null)
 
 
 function App() {

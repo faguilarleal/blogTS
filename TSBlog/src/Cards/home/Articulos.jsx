@@ -3,11 +3,14 @@ import Cards from './Card.jsx';
 import Loading from './Loading.jsx';
 import './Articulos.css';
 import PropTypes from 'prop-types';
+import { LogContext } from '../App.jsx';
 
 
 // obtener articulos de la API y mostrarlos como lista con cards 
 
 function Articulos({ruta, setRuta}) { 
+    const {logi} = React.useContext(LogContext)
+
     const [listadoArticulos, setListado] = React.useState([])
 
     const [loading, setLoading] = React.useState(true); // Estado para indicar si se está cargando
@@ -39,10 +42,17 @@ function Articulos({ruta, setRuta}) {
         return <div><img src='https://media.tenor.com/TlEiCCBTkNUAAAAi/alice-waiting.gif'></img>No hay publicaciones</div>; // Muestra un mensaje de estado vacío
     }
 
+    function handleClick() {
+        window.history.pushState({}, ruta, "/publicar")
+        setRuta("/publicar")
+    }
+    
 
     return (    
         <div >
-        <h1>Listado de Artículos</h1>
+        
+        {logi ? <><h1> Bienvenido a la pagina de Articulos </h1>
+        <button onClick={handleClick}> Publicar </button> </>: <h1> Bienvenido a la pagina de Articulos, por favor inicia sesion </h1>}
             <div id='articulos'>
             {listadoArticulos.map(articulo => {
                     return <div key={articulo.title} className='cards'>
