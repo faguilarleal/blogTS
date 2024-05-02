@@ -1,19 +1,41 @@
 import PropTypes from 'prop-types';
 import './Detalle.css'
-
+import { idContext } from '../App';
+import { useContext, useEffect, useState } from 'react';
 
 function Detalle() { 
 
+    const {idActual} = useContext(idContext)
+
+    const [info, setInfo] = useState(null)
+
+    async function getArticulo(){
+        try{
+            let response = await fetch('http://127.0.0.1:3000/blogs/'+idActual)
+            let data = await response.json()
+            console.log('la info',idActual,data[0])
+            setInfo(data[0])
+
+        }catch(e){
+            console.error("Error al cargar datos de la API",e)
+        }
+    
+    }
+
+    useEffect(() => {
+        getArticulo()
+    }, [])
 
     return (
+        info === null ? <div>Cargando...</div> :
         <div id='detalle'>
-            
-            <img src='https://people.com/thmb/YJOM6cLX1KKtVU3hZdKb4TP7MVk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(859x435:861x437)/taylor-swift-saddle-bag-tout-2000-d46308993a2e406ca2c4e68f3e6b71f3.jpg' id='imagen-articulo'></img>
-            <h1>Taylor Swift</h1>
-            <p>Texto</p>
-            <h3 id='autor'>Autor</h3>
+            <img src={info.imagen} id='imagen-articulo'></img>
+            <h1>{info.title}</h1>
+            <p>{info.content}</p>
+            <h3 id='autor'>{info.author}</h3>
         </div>
     );
+       
 }
 
 

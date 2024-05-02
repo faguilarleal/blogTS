@@ -1,13 +1,17 @@
 import PropTypes from 'prop-types';
 import './Card.css';
+import { idContext } from '../App.jsx';
+import { useContext } from 'react';
 
 function Cards(props) { 
 
+    const {setIdActual} = useContext(idContext)
+
     const handleClick = () => {
-        props.setRuta("/detalle")
-            //cambiar la ruta a /home
+        setIdActual(props.id)
+        console.log('ESTE ES EL ID '+props.id)
         window.history.pushState({}, props.ruta, "/detalle")
-            // alert("holaaa")
+        props.setRuta("/detalle")
     };
 
     return (

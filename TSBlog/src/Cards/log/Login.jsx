@@ -1,11 +1,15 @@
 import { useState } from 'react'
 import './Login.css'
 import PropTypes from 'prop-types'
+import { LogContext } from '../App.jsx'
+import { useContext } from 'react'
 
 function Login({ruta, setRuta}){
 
     const [user, setUser] = useState("")
     const [cont, setCont] = useState("")
+
+    const {setLog} = useContext(LogContext)
 
     const cambiarUsuario = (event) => {
         setUser(event.target.value)
@@ -19,9 +23,8 @@ function Login({ruta, setRuta}){
     
         if(user=="francis" & cont=="123"){
             setRuta("home")
-            //cambiar la ruta a /home
             window.history.pushState({}, ruta, "/home")
-            // alert("holaaa")
+            setLog(true)
         }
     }
 

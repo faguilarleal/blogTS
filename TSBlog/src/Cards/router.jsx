@@ -22,9 +22,7 @@ function Approuter({ruta, setRuta}) {
     case "/detalle":
         return (<>
         <Header ruta={ruta} setRuta={setRuta}></Header>
-
-            <Detalle></Detalle>
-        
+        <Detalle></Detalle>
         </>)
 
     case "/publicar":
