@@ -1,12 +1,13 @@
 import './Header.css'
 import PropTypes from 'prop-types'
-import { LogContext } from '../App.jsx'
+import { LogContext, rutaContext} from '../App.jsx'
 import { useContext } from 'react'
 
 
-function Header({ruta, setRuta}){
+function Header(){
 
     const {logi} = useContext(LogContext)
+    const {ruta, setRuta} = useContext(rutaContext)
     console.log(logi)
 
     function goHome()  {

@@ -39,7 +39,7 @@ function Detalle() {
             <p>{info.content}</p>
             <h3 id='autor'>{info.author}</h3>
 
-            {logi ? <> <div id='admin-buttons'><button onClick={handleClick}> Eliminar </button> <br></br>
+            {logi ? <> <div id='admin-buttons'><button  onClick={handleClick}> Eliminar </button> <br></br>
             <button onClick={handleClick}> Editar </button></div> </>: <></>}
       
         </div>

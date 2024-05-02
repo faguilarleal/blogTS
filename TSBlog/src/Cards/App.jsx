@@ -4,7 +4,9 @@ import Approuter from './router.jsx'
 
 export const LogContext = createContext(null)
 export const idContext = createContext(null)
+export const rutaContext = createContext(null)
 // export const userContext = createContext(null)
+
 
 
 function App() {
@@ -24,14 +26,16 @@ function App() {
   }, [ruta])
 
   return (  
-    <LogContext.Provider value={{logi, setLog}}>
+    <rutaContext.Provider value={{ruta, setRuta}}>
+      <LogContext.Provider value={{logi, setLog}}>
       <idContext.Provider value={{idActual, setIdActual}}>
       <div id = "layout" >
-        <Approuter ruta = {ruta} setRuta={setRuta} />
+        <Approuter/>
       </div>
       </idContext.Provider>
     </LogContext.Provider>   
-      
+    </rutaContext.Provider>
+  
   )
 }
 

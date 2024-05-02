@@ -5,42 +5,46 @@ import PropTypes from 'prop-types'
 import Login from "./log/Login.jsx";
 import Publicar from "./publicar/Publicar.jsx"
 import Detalle  from "./detalle/Detalle.jsx";
+import { rutaContext } from "./App.jsx";
+import React from "react";
+import Footer from "./home/footer.jsx";
 
-function Approuter({ruta, setRuta}) {
+function Approuter() {
+  const {ruta} = React.useContext(rutaContext)
     
   switch (ruta) {
     case "/home":
         console.log("home")
       return (<>
-        <Header ruta={ruta} setRuta={setRuta}></Header>
+        <Header></Header>
         <Content></Content>
-        <Articulos ruta={ruta} setRuta={setRuta}></Articulos>
-
+        <Articulos></Articulos>
+        <Footer></Footer>
         </>
       )
       
     case "/detalle":
         return (<>
-        <Header ruta={ruta} setRuta={setRuta}></Header>
+        <Header></Header>
         <Detalle></Detalle>
         </>)
 
     case "/publicar":
         return(<>
-        <Header ruta={ruta} setRuta={setRuta}></Header>
+        <Header></Header>
         <Publicar></Publicar>
         
         </>)
     case "/login":
         return (<>
-        <Header ruta={ruta} setRuta={setRuta}></Header>
-        <Login ruta={ruta} setRuta={setRuta}></Login>
+        <Header ></Header>
+        <Login></Login>
         </>)
     default:
         return (<>
-            <Header ruta={ruta} setRuta={setRuta}></Header>
+            <Header></Header>
               <Content></Content>
-              <Articulos ruta={ruta} setRuta={setRuta}></Articulos>
+              <Articulos ></Articulos>
               </>
             )
   }

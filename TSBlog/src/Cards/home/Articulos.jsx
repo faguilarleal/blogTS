@@ -3,13 +3,14 @@ import Cards from './Card.jsx';
 import Loading from './Loading.jsx';
 import './Articulos.css';
 import PropTypes from 'prop-types';
-import { LogContext } from '../App.jsx';
+import { LogContext , rutaContext} from '../App.jsx';
 
 
 // obtener articulos de la API y mostrarlos como lista con cards 
 
-function Articulos({ruta, setRuta}) { 
+function Articulos() { 
     const {logi} = React.useContext(LogContext)
+    const {ruta, setRuta} = React.useContext(rutaContext)
 
     const [listadoArticulos, setListado] = React.useState([])
 

@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import './Login.css'
 import PropTypes from 'prop-types'
-import { LogContext } from '../App.jsx'
+import { LogContext, rutaContext } from '../App.jsx'
 import { useContext } from 'react'
 
-function Login({ruta, setRuta}){
+function Login(){
 
     const [user, setUser] = useState("")
     const [cont, setCont] = useState("")
+    const {ruta, setRuta} = useContext(rutaContext)
 
     const {setLog} = useContext(LogContext)
 
