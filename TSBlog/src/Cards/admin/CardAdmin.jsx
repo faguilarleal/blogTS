@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import './CardA.css';
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { idContext, rutaContext } from '../App.jsx';
 
 function CardAdmin(props) { 
@@ -8,16 +8,16 @@ function CardAdmin(props) {
 
     const {idActual,  setIdActual } = useContext(idContext)
     const { ruta, setRuta}   = useContext(rutaContext)
-    setIdActual(props.id)
 
-    useEffect(() => {
-        console.log('ESTE ES EL ID '+props.id+idActual)
-    }, [idActual])
+   
 
     const editArticle = () =>{
         setIdActual(props.id)
-        // setRuta("/editar")
-        // window.history.pushState({}, ruta, "/editar")
+        console.log(idActual)
+        console.log('ESTEeeeee ES EL ID '+props.id+idActual)
+
+        setRuta("/editar")
+        window.history.pushState({}, ruta, "/editar")
     }
     async function deleteArticleAPI(id) {
         const response = await fetch('http://127.0.0.1:3000/blogs/'+id, {

@@ -1,5 +1,5 @@
-import Admin from "./admin/Admin.jsx";
 import Header from "./home/Header.jsx";
+import Admin from "./admin/Admin.jsx";
 import Content from "./home/Content.jsx";
 import Articulos from "./home/Articulos.jsx";
 import PropTypes from 'prop-types'

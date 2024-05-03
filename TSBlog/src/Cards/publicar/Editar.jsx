@@ -4,37 +4,31 @@ import { idContext } from '../App.jsx'
 
 function Editar(){
 
-    const {idActual, setIdActual} = useContext(idContext)
+    const {idActual} = useContext(idContext)
 
-    const [info, setInfo] = useState(null)
 
     const [titulo, setTitulo] = useState('')
     const [contenido, setContenido] = useState('')
     const [imagen, setImagen] = useState('')
     const [autor, setAutor] = useState('')
 
+
+
     async function getApi(){
         try{
             let response = await fetch('http://127.0.0.1:3000/blogs/'+idActual)
             let data = await response.json()
-            console.log('la info',idActual,data[0])
-            setInfo(data[0])
-
+            setTitulo(data[0].title)
+            setContenido(data[0].content)
+            setImagen(data[0].imagen)
+            setAutor(data[0].author)
+            console.log('LA INFO ES ',data[0])
         }catch(e){
             console.error("Error al cargar datos de la API",e)
         }
     }
     
-    const handleSubmit = () => {
-        
-        upDateAPI()
-    }
-    getApi()
-    setTitulo(info.title)
-    setContenido(info.content)
-    setImagen(info.imagen)
-    setAutor(info.author)
-
+    
     async function upDateAPI() {
 
         try {
@@ -49,7 +43,7 @@ function Editar(){
                 imagen: imagen
             })});
             if (!response.ok) {
-                throw new Error(`Error al cargar datos de la API: ${response.statusText}`);
+                throw new Error(`Error al hacer el update datos de la API: ${response.statusText}`);
             }
 
             let data = await response.json();
@@ -64,8 +58,14 @@ function Editar(){
     }
 
     React.useEffect(() => {
-        setInfo({titulo, contenido, autor, imagen})
-    }, [titulo, contenido, autor, imagen])
+        getApi()
+        console.log(idActual)
+        
+    }, [idActual])
+
+    const handleSubmit = () => {
+        upDateAPI()
+    }
 
 
     return(
