@@ -18,11 +18,11 @@ function Editar(){
         try{
             let response = await fetch('http://127.0.0.1:3000/blogs/'+idActual)
             let data = await response.json()
+            console.log('LA INFO ES ',data[0])
             setTitulo(data[0].title)
             setContenido(data[0].content)
             setImagen(data[0].imagen)
             setAutor(data[0].author)
-            console.log('LA INFO ES ',data[0])
         }catch(e){
             console.error("Error al cargar datos de la API",e)
         }
@@ -71,7 +71,7 @@ function Editar(){
     return(
         <div>
             <h1>Editar</h1>
-            <form>
+
                 <label>Titulo</label>
                 <input type='text'  value={titulo} onChange={(e) => setTitulo(e.target.value)}></input>
                 <label>Contenido</label>
@@ -81,7 +81,7 @@ function Editar(){
                 <label>Autor</label>
                 <input type='text' value={autor} onChange={(e) => setAutor(e.target.value)}></input>
                 <button type='submit' onClick={handleSubmit}>Editar</button>
-            </form>
+           
         </div>
     )
 }
