@@ -7,7 +7,6 @@ import { useContext, useEffect, useState } from 'react';
 function Detalle() { 
 
     const {idActual} = useContext(idContext)
-    // const {logi} = useContext(LogContext)
 
     const [info, setInfo] = useState(null)
 
@@ -35,13 +34,15 @@ function Detalle() {
     return (
         info === null ? <div>Cargando...</div> :
         <div id='detalle'>
-            <img src={info.imagen} id='imagen-articulo'></img>
-            <h1>{info.title}</h1>
-            <p>{info.content}</p>
-            <h3 id='autor'>{info.author}</h3>
-
-            {/* {logi ? <> <div id='admin-buttons'><button  onClick={handleClick}> Eliminar </button> <br></br>
-            <button onClick={handleClick}> Editar </button></div> </>: <></>} */}
+            <div id='div-imagen'>
+                <img src={info.imagen} id='imagen-articulo'></img>
+            </div>
+            <div id='div-content'>
+                <h1>{info.title}</h1>
+                <p>{info.content}</p>
+                <h3 id='autor'>{info.author}</h3>
+            </div>
+           
       
         </div>
     );

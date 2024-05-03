@@ -1,6 +1,5 @@
 import Header from "./home/Header.jsx";
 import Admin from "./admin/Admin.jsx";
-import Content from "./home/Content.jsx";
 import Articulos from "./home/Articulos.jsx";
 import PropTypes from 'prop-types'
 import Login from "./log/Login.jsx";
@@ -20,7 +19,6 @@ function Approuter() {
         console.log("home")
       return (<>
         <Header></Header>
-        <Content></Content>
         <Articulos></Articulos>
         <Footer></Footer>
         </>
@@ -29,35 +27,45 @@ function Approuter() {
       return (<>
         <Header></Header>
         {logi ? <Editar></Editar> : <h1>Por favor inicia sesion</h1>}
+        <Footer></Footer>
+
       </>)
     case "/detalle":
         return (<>
         <Header></Header>
         <Detalle></Detalle>
+        <Footer></Footer>
+
         </>)
 
     case "/publicar":
         return(<>
         <Header></Header>
         {logi ? <Publicar></Publicar> : <h1>Por favor inicia sesion</h1>}
+        <Footer></Footer>
+
         
         </>)
     case "/login":
         return (<>
         <Header ></Header>
         <Login></Login>
+        <Footer></Footer>
+
         </>)
 
     case "/admin":
       return(<>
       <Header></Header>
       {logi ? <Admin></Admin> : <h1>Por favor inicia sesion</h1>}
+      <Footer></Footer>
+
+
 
       </>)
     default:
       return (<>
         <Header></Header>
-        <Content></Content>
         <Articulos ></Articulos>
         <Footer></Footer>
       </>)

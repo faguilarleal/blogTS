@@ -22,11 +22,9 @@ function Articulos() {
             let articulos = await artics.json()
             console.log(articulos[0])
             setListado(articulos) // Actualiza el estado de listadoArticulos con los datos obtenidos
-            setLoading(false) // cambia el estado de loading a false
         }
         catch (e) {
             console.error("Error al cargar datos de la API",e)
-            setLoading(false) // cambia el estado de loading a false
         }
            
     }
@@ -34,7 +32,10 @@ function Articulos() {
 
     React.useEffect(() => {
         llamarAPI()
-    }, [])
+        setTimeout(() => {
+            setLoading(false)
+        }, 500)
+    }, []) // el [] indica que se ejecuta solo una vez
 
     
     // Condición para mostrar un estado vacío cuando no hay publicaciones
@@ -56,7 +57,7 @@ function Articulos() {
         {logi ? <><h1> Bienvenido a la pagina de Articulos </h1>
         <button onClick={handleClick}> Publicar </button> 
         <button onClick={() => {window.history.pushState({}, ruta, "/admin"); setRuta('/admin')} }> Admin </button>
-        <button onClick={() => { setLog(false)} }> Cerrar iniciar </button>
+        <button onClick={() => { setLog(false)} }> Cerrar sesion </button>
         </>
         : <h1> Bienvenido a la pagina de Articulos, por favor inicia sesion </h1>}
         
