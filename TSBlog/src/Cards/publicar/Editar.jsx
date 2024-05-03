@@ -61,6 +61,7 @@ function Editar(){
         getApi()
         console.log(idActual)
         
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [idActual])
 
     const handleSubmit = () => {

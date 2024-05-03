@@ -6,14 +6,15 @@ import PropTypes from 'prop-types'
 import Login from "./log/Login.jsx";
 import Publicar from "./publicar/Publicar.jsx"
 import Detalle  from "./detalle/Detalle.jsx";
-import { rutaContext } from "./App.jsx";
+import { rutaContext, LogContext } from "./App.jsx";
 import React from "react";
 import Footer from "./home/footer.jsx";
 import Editar from "./publicar/Editar.jsx";
 
 function Approuter() {
   const {ruta} = React.useContext(rutaContext)
-    
+  const {logi} = React.useContext(LogContext)
+
   switch (ruta) {
     case "/home":
         console.log("home")
@@ -27,7 +28,7 @@ function Approuter() {
     case "/editar":
       return (<>
         <Header></Header>
-      <Editar></Editar>
+        {logi ? <Editar></Editar> : <h1>Por favor inicia sesion</h1>}
       </>)
     case "/detalle":
         return (<>
@@ -38,7 +39,7 @@ function Approuter() {
     case "/publicar":
         return(<>
         <Header></Header>
-        <Publicar></Publicar>
+        {logi ? <Publicar></Publicar> : <h1>Por favor inicia sesion</h1>}
         
         </>)
     case "/login":
@@ -50,18 +51,16 @@ function Approuter() {
     case "/admin":
       return(<>
       <Header></Header>
-      <Admin></Admin>
+      {logi ? <Admin></Admin> : <h1>Por favor inicia sesion</h1>}
 
       </>)
     default:
-        return (<>
-            <Header></Header>
-              <Content></Content>
-              <Articulos ></Articulos>
+      return (<>
+        <Header></Header>
+        <Content></Content>
+        <Articulos ></Articulos>
         <Footer></Footer>
-
-              </>
-            )
+      </>)
   }
   
 }

@@ -9,7 +9,7 @@ import { LogContext , rutaContext} from '../App.jsx';
 // obtener articulos de la API y mostrarlos como lista con cards 
 
 function Articulos() { 
-    const {logi} = React.useContext(LogContext)
+    const {logi, setLog} = React.useContext(LogContext)
     const {ruta, setRuta} = React.useContext(rutaContext)
 
     const [listadoArticulos, setListado] = React.useState([])
@@ -54,7 +54,12 @@ function Articulos() {
         <div >
         
         {logi ? <><h1> Bienvenido a la pagina de Articulos </h1>
-        <button onClick={handleClick}> Publicar </button> </>: <h1> Bienvenido a la pagina de Articulos, por favor inicia sesion </h1>}
+        <button onClick={handleClick}> Publicar </button> 
+        <button onClick={() => {window.history.pushState({}, ruta, "/admin"); setRuta('/admin')} }> Admin </button>
+        <button onClick={() => { setLog(false)} }> Cerrar iniciar </button>
+        </>
+        : <h1> Bienvenido a la pagina de Articulos, por favor inicia sesion </h1>}
+        
             <div id='articulos'>
             {listadoArticulos.map(articulo => {
                     return <div key={articulo.title} className='cards'>
