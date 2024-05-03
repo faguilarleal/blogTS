@@ -1,10 +1,10 @@
 import React from 'react';
-import { LogContext } from '../App.jsx';
+// import { LogContext } from '../App.jsx';
 import CardAdmin from './CardAdmin.jsx';
 import Loading from '../home/Loading.jsx';
 
 function Admin() {
-    const {logi} = React.useContext(LogContext)
+    // const {logi} = React.useContext(LogContext)
 
     const [listadoArticulos, setListado] = React.useState([])
 
@@ -25,14 +25,10 @@ function Admin() {
            
     }
 
-
     React.useEffect(() => {
         llamarAPI()
     }, [])
 
-    function handleClick() {
-
-    }
 
     if (loading) {
         return <Loading />;

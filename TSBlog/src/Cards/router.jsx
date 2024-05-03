@@ -9,6 +9,7 @@ import Detalle  from "./detalle/Detalle.jsx";
 import { rutaContext } from "./App.jsx";
 import React from "react";
 import Footer from "./home/footer.jsx";
+import Editar from "./publicar/Editar.jsx";
 
 function Approuter() {
   const {ruta} = React.useContext(rutaContext)
@@ -23,7 +24,11 @@ function Approuter() {
         <Footer></Footer>
         </>
       )
-      
+    case "/editar":
+      return (<>
+        <Header></Header>
+      <Editar></Editar>
+      </>)
     case "/detalle":
         return (<>
         <Header></Header>
@@ -45,7 +50,8 @@ function Approuter() {
     case "/admin":
       return(<>
       <Header></Header>
-        <Admin></Admin>
+      <Admin></Admin>
+
       </>)
     default:
         return (<>

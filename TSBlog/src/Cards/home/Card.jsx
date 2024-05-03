@@ -7,12 +7,12 @@ import { useContext } from 'react';
 
 function Cards(props) { 
 
-    const {setIdActual} = useContext(idContext)
+    const {idActual,setIdActual} = useContext(idContext)
     const {setRuta, ruta}   = useContext(rutaContext)
 
     const handleClick = () => {
         setIdActual(props.id)
-        console.log('ESTE ES EL ID '+props.id)
+        console.log('ESTE ES EL ID '+props.id+idActual)
         window.history.pushState({}, ruta, "/detalle")
         setRuta("/detalle")
     };

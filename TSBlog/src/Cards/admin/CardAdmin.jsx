@@ -1,13 +1,25 @@
 import PropTypes from 'prop-types';
-import { idContext } from '../App.jsx';
-import { useContext } from 'react';
 import './CardA.css';
+import { useContext, useEffect } from 'react';
+import { idContext, rutaContext } from '../App.jsx';
 
 function CardAdmin(props) { 
 
-    const {idActual,setIdActual} = useContext(idContext)
 
-    async function deleteArticle(id) {
+    const {idActual,  setIdActual } = useContext(idContext)
+    const { ruta, setRuta}   = useContext(rutaContext)
+    setIdActual(props.id)
+
+    useEffect(() => {
+        console.log('ESTE ES EL ID '+props.id+idActual)
+    }, [idActual])
+
+    const editArticle = () =>{
+        setIdActual(props.id)
+        // setRuta("/editar")
+        // window.history.pushState({}, ruta, "/editar")
+    }
+    async function deleteArticleAPI(id) {
         const response = await fetch('http://127.0.0.1:3000/blogs/'+id, {
             method: 'DELETE',
             headers: {
@@ -19,16 +31,23 @@ function CardAdmin(props) {
 
     }
 
-    const handleClick = () => {
-        setIdActual(props.id)
-        console.log('ESTE ES EL ID '+props.id)
-        window.history.pushState({}, props.ruta, "/detalle")
-        props.setRuta("/detalle")
-    };
+    const deleteArticle = () =>{
+        deleteArticleAPI(props.id)
+        alert('Articulo eliminado '+props.id)
+        window.location.reload();
+    }
 
+    
+
+
+    
+
+    
+
+   
     return (
         <div className='card-admin'>
-            <div id='card-contentAdmin'  onClick={handleClick}>
+            <div id='card-contentAdmin' >
                 <img className='imagen-admin' src={props.imagen} alt={props.title} />   
             </div>
             <div className='info-admin'>
@@ -36,8 +55,8 @@ function CardAdmin(props) {
                 <p className='text-admin'>{props.author}</p>
             </div>
             <div className='botones-admin'>
-                <button className='btn' id='btne'>Editar</button>
-                <button className='btn' id='btnel'>Eliminar</button>
+                <button className='btn' id='btne' onClick={editArticle}>Editar</button>
+                <button className='btn' id='btnel' onClick={deleteArticle}>Eliminar</button>
             </div>
         </div>
     );
