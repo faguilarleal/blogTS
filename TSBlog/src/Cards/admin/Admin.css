@@ -1,0 +1,8 @@
+#articulos-admin{
+    display: flex;
+    background-color: white;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10%;
+}
+

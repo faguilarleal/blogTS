@@ -1,0 +1,32 @@
+.card-admin{
+    border: 1px solid black;
+    margin: 10px;
+    margin-inline-start: 25%;
+    margin-inline-end: 25%;
+    display: grid;
+    grid-template-columns: 20% 50% 30%;
+}
+.imagen-admin{
+    margin: 10px;
+    height: 100px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.text-admin{
+    margin-left: 10%;
+}
+
+.botones-admin{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn{
+    margin: 5px;
+    width: 80px;
+}
+
+

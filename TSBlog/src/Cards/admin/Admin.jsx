@@ -44,9 +44,9 @@ function Admin() {
         <div id='admin'>
             <div id='articulos-admin'>
             {listadoArticulos.map(articulo => {
-                    return <div key={articulo.title} className='cards-admin'>
-                    <CardAdmin id={articulo.id} title = {articulo.title} content={articulo.content} imagen={articulo.imagen} />
-                </div>
+                    return <>
+                    <CardAdmin id={articulo.id} title = {articulo.title} content={articulo.content} imagen={articulo.imagen} author={articulo.author}/>
+                </>
                 }  
                 )}  
             </div>

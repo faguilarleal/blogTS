@@ -1,10 +1,23 @@
 import PropTypes from 'prop-types';
 import { idContext } from '../App.jsx';
 import { useContext } from 'react';
+import './CardA.css';
 
 function CardAdmin(props) { 
 
-    const {setIdActual} = useContext(idContext)
+    const {idActual,setIdActual} = useContext(idContext)
+
+    async function deleteArticle(id) {
+        const response = await fetch('http://127.0.0.1:3000/blogs/'+id, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+        const data = await response.json();
+        console.log(data)
+
+    }
 
     const handleClick = () => {
         setIdActual(props.id)
@@ -14,11 +27,18 @@ function CardAdmin(props) {
     };
 
     return (
-        <div className='card'>
-            <div id='card-content'  onClick={handleClick}>
-                <img className='imagen-articulo' src={props.imagen} alt={props.title} />   
+        <div className='card-admin'>
+            <div id='card-contentAdmin'  onClick={handleClick}>
+                <img className='imagen-admin' src={props.imagen} alt={props.title} />   
             </div>
-            <h2>{props.title}</h2>
+            <div className='info-admin'>
+                <h2 className='text-admin'>{props.title}</h2>
+                <p className='text-admin'>{props.author}</p>
+            </div>
+            <div className='botones-admin'>
+                <button className='btn' id='btne'>Editar</button>
+                <button className='btn' id='btnel'>Eliminar</button>
+            </div>
         </div>
     );
 }
