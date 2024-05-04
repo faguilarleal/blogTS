@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export const useApi = (url, method, data = null) => {
+export const useApi = (url, method, trigger= false, data = null) => {
     const [info, setInfo] = useState(null)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
@@ -20,7 +20,9 @@ export const useApi = (url, method, data = null) => {
     }
 
     useEffect(() => {
-        fetchData()
+        if (trigger){
+            fetchData()
+        }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [url, method, data]) 
 

@@ -3,7 +3,7 @@ import Loading from '../home/Loading.jsx';
 import {useApi} from '../hooks/useApi.jsx';
 
 function Admin() {
-    const {info, loading } = useApi('http://127.0.0.1:3000/blogs', 'GET')
+    const {info, loading } = useApi('http://127.0.0.1:3000/blogs', 'GET', true)
     
 
     if (loading) {

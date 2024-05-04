@@ -13,7 +13,7 @@ function Articulos() {
     const {logi, setLog} = React.useContext(LogContext)
     const {ruta, setRuta} = React.useContext(rutaContext)
 
-    const {info, loading } = useApi('http://127.0.0.1:3000/blogs', 'GET')
+    const {info, loading } = useApi('http://127.0.0.1:3000/blogs', 'GET', true)
     
     // Condición para mostrar un estado vacío cuando no hay publicaciones
     if (loading) {

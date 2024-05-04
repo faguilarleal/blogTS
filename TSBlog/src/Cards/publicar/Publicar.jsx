@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react';
 import './Publicar.css';
+// import axios from 'axios'
+// import { useApi } from '../hooks/useApi';
 
 function Publicar() {
 
     const [lista, setLista] = useState({})
+    // const [listo, setListo] = useState(false)
 
     async function llamarAPI() {
         try {
@@ -35,6 +38,14 @@ function Publicar() {
            
     }
 
+    // useEffect(() => {
+    //     if(listo){
+    //         axios.put()
+    //     }
+
+    // })
+
+
 
 
     const [titulo, setTitulo] = useState('');
@@ -53,7 +64,8 @@ function Publicar() {
         if (titulo == '' || contenido == '' || autor == '' || imagen == ''){
             alert('Llene todos los campos')
         }else{
-            llamarAPI() 
+            // setListo(true)
+            llamarAPI()
         }
     }
 
