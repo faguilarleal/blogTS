@@ -6,31 +6,13 @@ import Login from "./log/Login.jsx";
 import Publicar from "./publicar/Publicar.jsx"
 import Detalle  from "./detalle/Detalle.jsx";
 import { rutaContext, LogContext } from "./App.jsx";
-import React, { useEffect } from "react";
+import React from "react";
 import Footer from "./home/footer.jsx";
 import Editar from "./publicar/Editar.jsx";
 
 function Approuter() {
   const {ruta} = React.useContext(rutaContext)
   const {logi} = React.useContext(LogContext)
-
-  // localstorage
-  useEffect(() => {
-    console.log("local storage",localStorage)
-    // Almacenar un dato en nuestro storage por medio de setItem (propiedad, valor)
-    localStorage.setItem("nombre", "Francis");
-    localStorage.setItem("apellido", "Agular");
-    
-    // Obtener un dato de nuestro storage por medio de getItem
-    console.log(localStorage.getItem("nombre")); 
-    console.log(localStorage.getItem("apellido"));
-
-    // Eliminar un dato de nuestro storage por medio de removeItem
-    // localStorage.removeItem("nombre");
-    
-    // limpiar todos los datos 
-    // localStorage.clear();
-  }, [logi])
 
 
 

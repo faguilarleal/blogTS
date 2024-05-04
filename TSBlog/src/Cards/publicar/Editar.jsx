@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { idContext } from '../App.jsx'
+import { useApi } from '../hooks/useApi.jsx';
 
 
 function Editar(){
@@ -13,21 +14,18 @@ function Editar(){
     const [autor, setAutor] = useState('')
 
 
+    const {info} = useApi('http://127.0.0.1:3000/blogs/'+idActual, 'GET')
 
-    async function getApi(){
-        try{
-            let response = await fetch('http://127.0.0.1:3000/blogs/'+idActual)
-            let data = await response.json()
-            console.log('LA INFO ES ',data[0])
-            setTitulo(data[0].title)
-            setContenido(data[0].content)
-            setImagen(data[0].imagen)
-            setAutor(data[0].author)
-        }catch(e){
-            console.error("Error al cargar datos de la API",e)
+    React.useEffect(() => {
+        console.log('imprimir',info, idActual)
+        if(info != null){
+            setTitulo(info[0].title)
+            setContenido(info[0].content)
+            setImagen(info[0].imagen)
+            setAutor(info[0].author)
         }
-    }
-    
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [info])
     
     async function upDateAPI() {
 
@@ -56,13 +54,6 @@ function Editar(){
         }
 
     }
-
-    React.useEffect(() => {
-        getApi()
-        console.log(idActual)
-        
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [idActual])
 
     const handleSubmit = () => {
         upDateAPI()
