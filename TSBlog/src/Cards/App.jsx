@@ -17,6 +17,8 @@ function App() {
   const [ruta, setRuta] = useState('home')
 
   useEffect(() => {
+    setLog(localStorage.getItem('login') !== null)
+    console.log(logi)
     console.log(window.location.pathname)
     setRuta(window.location.pathname)
 
@@ -24,7 +26,7 @@ function App() {
       window.history.pushState({}, ruta, "/home")
       setRuta('/home')
     } 
-  }, [ruta])
+  }, [logi, ruta])
 
   return (  
     <rutaContext.Provider value={{ruta, setRuta}}>

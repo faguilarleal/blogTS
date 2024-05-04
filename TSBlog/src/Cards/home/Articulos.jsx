@@ -57,7 +57,7 @@ function Articulos() {
         {logi ? <><h1> Bienvenido a la pagina de Articulos </h1>
         <button onClick={handleClick}> Publicar </button> 
         <button onClick={() => {window.history.pushState({}, ruta, "/admin"); setRuta('/admin')} }> Admin </button>
-        <button onClick={() => { setLog(false)} }> Cerrar sesion </button>
+        <button onClick={() => { setLog(false); localStorage.removeItem('login')}  }> Cerrar sesion </button>
         </>
         : <h1> Bienvenido a la pagina de Articulos, por favor inicia sesion </h1>}
         

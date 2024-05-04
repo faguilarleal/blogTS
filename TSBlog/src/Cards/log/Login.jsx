@@ -24,6 +24,7 @@ function Login(){
     
         if(user=="francis" & cont=="123"){
             setRuta("home")
+            localStorage.setItem("login", true)
             window.history.pushState({}, ruta, "/home")
             setLog(true)
         }
