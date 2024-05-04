@@ -25,6 +25,7 @@ function Detalle() {
 
     useEffect(() => {
         getArticulo()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     // function handleClick(){
