@@ -1,36 +1,14 @@
 import PropTypes from 'prop-types';
 import './Detalle.css'
 import { idContext } from '../App';
-// import { LogContext} from '../App';
-import { useContext, useEffect, useState } from 'react';
+import { useContext} from 'react';
+import { useApi } from '../hooks/useApi';
 
 function Detalle() { 
 
     const {idActual} = useContext(idContext)
+    const {info} = useApi('http://127.0.0.1:3000/blogs/'+idActual, 'GET')
 
-    const [info, setInfo] = useState(null)
-
-    async function getArticulo(){
-        try{
-            let response = await fetch('http://127.0.0.1:3000/blogs/'+idActual)
-            let data = await response.json()
-            console.log('la info',idActual,data[0])
-            setInfo(data[0])
-
-        }catch(e){
-            console.error("Error al cargar datos de la API",e)
-        }
-    
-    }
-
-    useEffect(() => {
-        getArticulo()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
-
-    // function handleClick(){
-
-    // }
 
     return (
         info === null ? <div>Cargando...</div> :
