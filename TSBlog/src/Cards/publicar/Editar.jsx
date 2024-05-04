@@ -1,12 +1,13 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext } from 'react'
 import { idContext } from '../App.jsx'
-import { useApi } from '../hooks/useApi.jsx';
+import { useApi } from '../hooks/useApi.jsx'
+import axios from 'axios'
 
 
 function Editar(){
 
     const {idActual} = useContext(idContext)
-
+    const [update, setUpdate] = useState(false)
 
     const [titulo, setTitulo] = useState('')
     const [contenido, setContenido] = useState('')
@@ -27,36 +28,29 @@ function Editar(){
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [info])
     
-    async function upDateAPI() {
 
-        try {
-            let response = await fetch('http://127.0.0.1:3000/blogs/'+idActual, {method: 'PUT',
-            headers:{
-                'Content-Type':'application/json'
-            },
-            body: JSON.stringify({
+    React.useEffect(() => {
+        if (update){
+            axios.put('http://127.0.0.1:3000/blogs/'+idActual, {
                 title: titulo,
                 author: autor,
                 content: contenido,
                 imagen: imagen
-            })});
-            if (!response.ok) {
-                throw new Error(`Error al hacer el update datos de la API: ${response.statusText}`);
-            }
-
-            let data = await response.json();
-            console.log(data); // Muestra la respuesta del servidor
-
+            })
+            .then(response => {
+                console.log(response);
+                setUpdate(false);
+            })
+            .catch(error => {
+                console.log(error);
+            });
         }
-        catch(e){   
-            console.error("Error al cargar datos de la API", e)
-            alert('no se pudo publicar en la API')
-        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [update])
 
-    }
 
     const handleSubmit = () => {
-        upDateAPI()
+        setUpdate(true)
     }
 
 
