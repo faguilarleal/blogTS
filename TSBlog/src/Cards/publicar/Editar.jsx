@@ -1,7 +1,6 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext } from 'react';
 import { idContext } from '../App.jsx'
 import { useApi } from '../hooks/useApi.jsx'
-import axios from 'axios'
 
 
 function Editar(){
@@ -15,7 +14,7 @@ function Editar(){
     const [autor, setAutor] = useState('')
 
 
-    const {info} = useApi('http://127.0.0.1:3000/blogs/'+idActual, 'GET')
+    const {info} = useApi('http://127.0.0.1:3000/blogs/'+idActual, 'GET', true)
 
     React.useEffect(() => {
         console.log('imprimir',info, idActual)
@@ -31,22 +30,13 @@ function Editar(){
 
     React.useEffect(() => {
         if (update){
-            axios.put('http://127.0.0.1:3000/blogs/'+idActual, {
-                title: titulo,
-                author: autor,
-                content: contenido,
-                imagen: imagen
-            })
-            .then(response => {
-                console.log(response);
-                setUpdate(false);
-            })
-            .catch(error => {
-                console.log(error);
-            });
+            setUpdate(false)
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [update])
+
+
+    useApi('http://127.0.0.1:3000/blogs/'+idActual, 'PUT', update, {title: titulo, author: autor, content: contenido, imagen: imagen})
 
 
     const handleSubmit = () => {

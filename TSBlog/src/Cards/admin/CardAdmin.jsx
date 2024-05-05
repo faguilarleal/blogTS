@@ -19,6 +19,8 @@ function CardAdmin(props) {
         setRuta("/editar")
         window.history.pushState({}, ruta, "/editar")
     }
+
+    
     async function deleteArticleAPI(id) {
         const response = await fetch('http://127.0.0.1:3000/blogs/'+id, {
             method: 'DELETE',
@@ -36,11 +38,6 @@ function CardAdmin(props) {
         alert('Articulo eliminado '+props.id)
         window.location.reload();
     }
-
-    
-
-
-    
 
     
 

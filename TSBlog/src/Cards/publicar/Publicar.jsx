@@ -1,51 +1,15 @@
 import { useEffect, useState } from 'react';
 import './Publicar.css';
+import { useApi } from '../hooks/useApi';
 // import axios from 'axios'
 // import { useApi } from '../hooks/useApi';
 
 function Publicar() {
 
     const [lista, setLista] = useState({})
-    // const [listo, setListo] = useState(false)
+    const [listo, setListo] = useState(false)
 
-    async function llamarAPI() {
-        try {
-            let response = await fetch('http://127.0.0.1:3000/blogs', {method: 'POST',
-            headers:{
-                'Content-Type':'application/json'
-            },
-            body: JSON.stringify({
-                title: lista.titulo,
-                author: lista.autor,
-                content: lista.contenido,
-                imagen: lista.imagen
-            })});
-
-            if (!response.ok) {
-                throw new Error(`Error al cargar datos de la API: ${response.statusText}`);
-            }
-
-            let data = await response.json();
-            console.log(data); // Muestra la respuesta del servidor
-
-            // setLoading(false) // cambia el estado de loading a false
-        }
-        catch (e) {
-            console.error("Error al cargar datos de la API", e)
-            alert('no se pudo publicar en la API')
-            // setLoading(false) // cambia el estado de loading a false
-        }
-           
-    }
-
-    // useEffect(() => {
-    //     if(listo){
-    //         axios.put()
-    //     }
-
-    // })
-
-
+    useApi('http://127.0.0.1:3000/blogs', 'POST', listo, lista)
 
 
     const [titulo, setTitulo] = useState('');
@@ -54,20 +18,23 @@ function Publicar() {
     const [imagen, setImagen] = useState('');
 
    useEffect(() => {
-        setLista({titulo, contenido, autor, imagen})
+        setLista({title:titulo, author: autor, content: contenido, imagen:imagen})
     }, [titulo, contenido, autor, imagen])
+
 
 
     const handleClick = () => {
         console.log('Datos a publicar:', lista);
-        console.log(lista.titulo)
+        console.log(listo, 'f')
         if (titulo == '' || contenido == '' || autor == '' || imagen == ''){
             alert('Llene todos los campos')
         }else{
-            // setListo(true)
-            llamarAPI()
+            setListo(true)
+            console.log('Publicado', listo)
         }
     }
+    
+   
 
     return (
         <div id="publicar">
