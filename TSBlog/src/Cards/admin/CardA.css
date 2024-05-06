@@ -1,8 +1,9 @@
 .card-admin{
-    border: 1px solid black;
     margin: 10px;
+    background-color: #EAE6ED;
     margin-inline-start: 25%;
     margin-inline-end: 25%;
+    border-radius: 10px;
     display: grid;
     grid-template-columns: 20% 50% 30%;
 }
@@ -26,7 +27,12 @@
 
 .btn{
     margin: 5px;
-    width: 80px;
+    width: 100px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
 

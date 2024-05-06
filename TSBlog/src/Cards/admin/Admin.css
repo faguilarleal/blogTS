@@ -1,8 +1,35 @@
-#articulos-admin{
+.articulos-admin{
     display: flex;
     background-color: white;
     flex-direction: column;
     justify-content: center;
-    padding: 10%;
+    padding: 10px
+}
+
+#admin-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+button{
+    background-color: #A592B3; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+#cerrar-btn{
+    background-color: #836798; 
+    margin-left: 10%;
 }
 

@@ -64,8 +64,6 @@ CardAdmin.propTypes = {
     content: PropTypes.string,
     author: PropTypes.string,
     imagen: PropTypes.string,
-    setRuta: PropTypes.func.isRequired, // Cambiado de `object` a `func`
-    ruta: PropTypes.string.isRequired,
     id: PropTypes.number.isRequired
 };
 

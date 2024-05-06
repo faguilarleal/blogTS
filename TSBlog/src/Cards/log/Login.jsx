@@ -23,28 +23,31 @@ function Login(){
     function vereficar(){
     
         if(user=="francis" & cont=="123"){
-            setRuta("home")
+            setRuta("admin")
             localStorage.setItem("login", true)
-            window.history.pushState({}, ruta, "/home")
+            window.history.pushState({}, ruta, "/admin")
             setLog(true)
         }
     }
 
     return (
-        <div className="login">
-            {/* login funcional */}
-            
+        <div className="login">            
             <div className="inputs">
-                <h1>Login</h1>
-                <label>Usuario</label>
-                <br />
-                <input type="text" name="usuario" onChange={cambiarUsuario} />
-                <br />
-                <label>Contraseña</label>
-                <br />
-                <input type="password" name="contraseña" onChange={cambiarContra}/>
+                <h1 id='h1-loading'>Log In</h1>
+                <div id='user'>
+                    <label>Usuario</label>
+                    <br/>
+                    <input type="text" name="usuario" onChange={cambiarUsuario} />
+                </div>
+                <br/>
+                <div id='contra'>
+                    <label>Contraseña</label>
+                    <br />
+                    <input type="password" name="contraseña" onChange={cambiarContra}/>
+                </div>
+                
                 <br /><br />
-                <button type="submit" onClick={vereficar}>Ingresar</button>
+                <button type="submit" onClick={vereficar} id='btn'>Ingresar</button>
             </div>
                 
            
