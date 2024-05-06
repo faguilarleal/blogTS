@@ -4,7 +4,7 @@ services:
   mysql:
     build: ./mysql
     ports:
-      - "33068:3306"
+      - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: root_password
       MYSQL_USER: blog_user
@@ -15,7 +15,7 @@ services:
   api:
     build: ./api
     ports:
-      - "3000:3000"
+      - "3611:3000"
     depends_on:
       - mysql
 
