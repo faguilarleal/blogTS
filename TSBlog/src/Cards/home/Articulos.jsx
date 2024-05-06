@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Cards from './Card.jsx';
-import Loading from './Loading.jsx';
+import Loading from '../Loading/Loading.jsx';
 import './Articulos.css';
 import PropTypes from 'prop-types';
 import { LogContext , rutaContext} from '../App.jsx';
@@ -12,9 +12,19 @@ import { useApi } from '../hooks/useApi.jsx';
 function Articulos() { 
     const {logi, setLog} = React.useContext(LogContext)
     const {ruta, setRuta} = React.useContext(rutaContext)
+    const [loading, setLoading] = React.useState(true)
 
-    const {info, loading } = useApi('http://127.0.0.1:3000/blogs', 'GET', true)
+    const {info } = useApi('http://127.0.0.1:3000/blogs', 'GET', true)
     
+    console.log('loadinggggg ',loading)
+    
+    useEffect(() => {
+        setLoading(true)
+        setTimeout(() => {
+            setLoading(false)
+        }, 1000)
+    }, [info])
+
     // Condición para mostrar un estado vacío cuando no hay publicaciones
     if (loading) {
         return <Loading />;

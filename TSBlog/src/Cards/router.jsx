@@ -9,6 +9,7 @@ import { rutaContext, LogContext } from "./App.jsx";
 import React from "react";
 import Footer from "./home/footer.jsx";
 import Editar from "./publicar/Editar.jsx";
+import Loading from "./Loading/Loading.jsx";
 
 function Approuter() {
   const {ruta} = React.useContext(rutaContext)
@@ -17,6 +18,12 @@ function Approuter() {
 
 
   switch (ruta) {
+    case "/loading":
+      return (<>
+        <Header></Header>
+        <Loading></Loading>
+        <Footer></Footer>
+      </>)
     case "/home":
         console.log("home")
       return (<>

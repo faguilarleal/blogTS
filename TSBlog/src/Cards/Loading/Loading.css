@@ -1,0 +1,10 @@
+
+
+#loading{
+    height:auto;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: white;
+    flex-direction: row;
+    justify-content: center;
+}

@@ -1,5 +1,5 @@
 import CardAdmin from './CardAdmin.jsx';
-import Loading from '../home/Loading.jsx';
+import Loading from '../Loading/Loading.jsx';
 import {useApi} from '../hooks/useApi.jsx';
 
 function Admin() {

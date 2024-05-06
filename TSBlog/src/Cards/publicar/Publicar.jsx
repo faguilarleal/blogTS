@@ -9,7 +9,7 @@ function Publicar() {
     const [lista, setLista] = useState({})
     const [listo, setListo] = useState(false)
 
-    const{ info,error} = useApi('http://127.0.0.1:3000/blogs', 'POST', listo, {title: lista.title, author: lista.author, content: lista.content, imagen: lista.imagen})
+    const{ info, error } = useApi('http://127.0.0.1:3000/blogs', 'POST', listo, {title: lista.title, author: lista.author, content: lista.content, imagen: lista.imagen})
     console.log('error', error, info)
     console.log('listo', listo) 
 
