@@ -35,4 +35,15 @@
 
 }
 
+@media (max-width: 700px) {
+    .card-admin{
+        margin-inline-start: 5%;
+        margin-inline-end: 5%;
+        border-radius: 10px;
+        display: grid;
+        grid-template-columns: 25% 45% 30%;
+    }
+}
+
+
 

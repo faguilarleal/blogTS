@@ -32,28 +32,27 @@ function Articulos() {
             <img src='https://media.tenor.com/TlEiCCBTkNUAAAAi/alice-waiting.gif'></img>
             <h1>Lo sentimos, no hay publicaciones disponibles</h1>
             </div>; // Muestra un mensaje de estado vacío
+    } else{
+        return (    
+            <div >
+            
+            {logi ? <><h1> Bienvenido a la pagina de Articulos </h1>
+            <button onClick={() => {window.history.pushState({}, ruta, "/admin"); setRuta('/admin')} }> Regresar </button>
+            </>
+            : <h1> Bienvenido a la pagina de Articulos, por favor inicia sesion </h1>}
+                <div id='articulos'>
+                {info.map(articulo => {
+                        return <div key={articulo.title} className='cards'>
+                        <Cards id={articulo.id} title = {articulo.title} content={articulo.content} imagen={articulo.imagen} />
+                    </div>
+                    }  
+                    )}  
+                </div>
+                
+        </div>
+        )
     }
 
-    
-
-    return (    
-        <div >
-        
-        {logi ? <><h1> Bienvenido a la pagina de Articulos </h1>
-        <button onClick={() => {window.history.pushState({}, ruta, "/admin"); setRuta('/admin')} }> Regresar </button>
-        </>
-        : <h1> Bienvenido a la pagina de Articulos, por favor inicia sesion </h1>}
-        
-            <div id='articulos'>
-            {info.map(articulo => {
-                    return <div key={articulo.title} className='cards'>
-                    <Cards id={articulo.id} title = {articulo.title} content={articulo.content} imagen={articulo.imagen} />
-                </div>
-                }  
-                )}  
-            </div>
-    </div>
-    )
 }
 
 

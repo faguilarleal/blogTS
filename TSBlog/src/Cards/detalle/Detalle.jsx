@@ -12,6 +12,7 @@ function Detalle() {
     return (
         info === null ? <div>Cargando...</div> :
         <div id='detalle'>
+            <div>
             <div id='div-imagen'>
                 <img src={info[0].imagen} id='imagen-articulo'></img>
             </div>
@@ -20,8 +21,10 @@ function Detalle() {
                 <p>{info[0].content}</p>
                 <h3 id='autor'>{info[0].author}</h3>
             </div>
+            </div>
+            
            
-      
+            
         </div>
     );
        

@@ -4,6 +4,7 @@
     background-color: white;
     flex-direction: row;
     justify-content: center;
+    flex: 1 0 auto;
     
 }
 
@@ -18,5 +19,14 @@
     justify-content: center;
     flex-direction: column;
 }
+/* Estilos para el contenedor de la página */
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+
+
 
 

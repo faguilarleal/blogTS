@@ -1,10 +1,8 @@
 
-/* acceder a un id */
-/* Path: TSBlog/src/Cards/Header.css */
 #TituloBlog{
     font-family: 'Romie-Regular';
-    font-size: 60px;
-    line-height: 60px;
+    font-size: 4em;
+    line-height: 1;
     letter-spacing: -4px;
     padding-top: 0;
     color: rgb(0, 0, 0);
@@ -12,9 +10,56 @@
 
 }
 
+#home-icon{
+    width: 50px;
+    height: 50px;
+    margin-left: 15%;
+    transition-duration: 0.5s;
+}
+#home-icon:hover{
+    cursor: pointer;
+    margin-top: -10px;
+}
+
+
+#account-icon{
+    width: 50px;
+    height: 50px;
+    margin-left: 60%;
+    transition-duration: 0.5s;
+
+}
+
+#account-icon:hover{
+    cursor: pointer;
+    margin-top: -10px;
+}
+   
+
+/* Cambia el tamaño de fuente cuando la ventana del navegador es menor a 600px */
+@media (max-width: 700px) {
+    #TituloBlog {
+        font-size: 6vw; /* Ajusta este valor según tus necesidades */
+        letter-spacing: -1px;
+
+    }
+    #home-icon{
+        width: 40px;
+        height: 40px;
+        margin-left: 15%;
+    }
+    
+    #account-icon{
+        width: 40px;
+        height: 40px;
+        margin-left: 40%;
+    }
+       
+}
+
 #header{
     width: 100%;
-    height: 90%;
+    height: 100%;
     display: grid;
     justify-content: center;
     align-items: center;
@@ -23,15 +68,3 @@
 
 }
 
-#home-icon{
-    width: 50px;
-    height: 50px;
-    margin-left: 15%;
-}
-
-#account-icon{
-    width: 50px;
-    height: 50px;
-    margin-left: 60%;
-}
-   

@@ -1,6 +1,6 @@
 #imagen-articulo{
     max-width: 100%;
-    max-height: 80%;
+    max-height: 500px;
     height: auto;
 }
 
@@ -8,16 +8,15 @@
     margin: 10px;
     margin-inline-start:10%;
     margin-inline-end: 10%;
-    display: grid;
-    height: fit-content;
-    grid-template-rows: 50%;
+    display: flex;
+    height: auto;
+    flex-direction: column;
 }
 
 #div-imagen{
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 #div-content{

@@ -1,12 +1,11 @@
 import React, { useState, useContext } from 'react';
-import { idContext, rutaContext } from '../App.jsx'
+import { idContext } from '../App.jsx'
 import { useApi } from '../hooks/useApi.jsx'
 import './Publicar.css'
 
 
 function Editar(){
 
-    const {ruta, setRuta} = useContext(rutaContext)
     const {idActual} = useContext(idContext)
     const [update, setUpdate] = useState(false)
 
