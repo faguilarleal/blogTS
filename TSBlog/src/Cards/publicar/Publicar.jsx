@@ -9,8 +9,9 @@ function Publicar() {
     const [lista, setLista] = useState({})
     const [listo, setListo] = useState(false)
 
-    useApi('http://127.0.0.1:3000/blogs', 'POST', listo, lista)
-
+    const{ info,error} = useApi('http://127.0.0.1:3000/blogs', 'POST', listo, {title: lista.title, author: lista.author, content: lista.content, imagen: lista.imagen})
+    console.log('error', error, info)
+    console.log('listo', listo) 
 
     const [titulo, setTitulo] = useState('');
     const [contenido, setContenido] = useState('');
@@ -21,7 +22,9 @@ function Publicar() {
         setLista({title:titulo, author: autor, content: contenido, imagen:imagen})
     }, [titulo, contenido, autor, imagen])
 
-
+    useEffect(() => {
+        setListo(false)
+    }, [listo])
 
     const handleClick = () => {
         console.log('Datos a publicar:', lista);

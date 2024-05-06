@@ -1,13 +1,16 @@
 import PropTypes from 'prop-types';
 import './CardA.css';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { idContext, rutaContext } from '../App.jsx';
+import { useApi } from '../hooks/useApi.jsx';
 
 function CardAdmin(props) { 
 
 
     const {idActual,  setIdActual } = useContext(idContext)
     const { ruta, setRuta}   = useContext(rutaContext)
+    const [eliminar, setElimianr ]  = useState(false)
+
 
    
 
@@ -20,21 +23,18 @@ function CardAdmin(props) {
         window.history.pushState({}, ruta, "/editar")
     }
 
-    
-    async function deleteArticleAPI(id) {
-        const response = await fetch('http://127.0.0.1:3000/blogs/'+id, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        });
-        const data = await response.json();
-        console.log(data)
+    useEffect(() => {
+        if(eliminar){
+            setElimianr(false)
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [eliminar])
 
-    }
+    useApi('http://127.0.0.1:3000/blogs/'+props.id, 'DELETE', eliminar, {id: props.id})
+
 
     const deleteArticle = () =>{
-        deleteArticleAPI(props.id)
+        setElimianr(true)
         alert('Articulo eliminado '+props.id)
         window.location.reload();
     }
