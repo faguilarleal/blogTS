@@ -25,7 +25,6 @@ function Approuter() {
         <Footer></Footer>
       </>)
     case "/home":
-        console.log("home")
       return (<>
         <Header></Header>
         <Articulos></Articulos>
@@ -75,7 +74,6 @@ function Approuter() {
     default:
       return (<>
         <Header></Header>
-        <Articulos ></Articulos>
         <Footer></Footer>
       </>)
   }

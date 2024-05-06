@@ -22,10 +22,10 @@ function App() {
     console.log(window.location.pathname)
     setRuta(window.location.pathname)
 
-    if(window.location.pathname === '/'){
-      window.history.pushState({}, ruta, "/home")
-      setRuta('/home')
-    } 
+    // if(window.location.pathname === '/'){
+    //   window.history.pushState({}, ruta, "/home")
+    //   setRuta('/home')
+    // } 
   }, [logi, ruta])
 
   return (  

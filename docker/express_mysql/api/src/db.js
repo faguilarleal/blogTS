@@ -1,0 +1,58 @@
+const conn = require('./connection.js')
+
+async function getAllBlogs() {
+  try {
+    const [rows] = await conn.query('SELECT * FROM blogs')
+    return rows
+  } catch (e) {
+    console.log(e)
+    return e
+  }
+}
+
+async function getBlog(id) {
+  try {
+    const [rows] = await conn.query(`SELECT * FROM blogs WHERE id = ${id}`)
+    return rows
+  } catch (e) {
+    console.log(e)
+    return e
+  }
+}
+
+async function update(id, title, author, content, image) {
+  try {
+    const [result] = await conn.query(`UPDATE blogs SET content = '${content}', author = '${author}', title = '${title}', imagen ='${image}' WHERE id = '${id}'`)
+    return result
+  } catch (e) {
+    return e
+  }
+}
+
+async function createBlog(title, author, content, image) {
+  try {
+    const [result] = await conn.query(`INSERT INTO blogs (title, author, content, imagen) VALUES ('${title}', '${author}', '${content}', '${image}')`)
+    return result
+  } catch (e) {
+    console.log(e)
+    return e
+  }
+}
+
+async function deleteBlog(id) {
+  try {
+    const [result] = await conn.query(`DELETE FROM blogs WHERE id = ${id}`)
+    return result
+  } catch (e) {
+    console.log(e)
+    return e
+  }
+}
+
+module.exports = {
+  getAllBlogs,
+  getBlog,
+  update,
+  createBlog,
+  deleteBlog,
+}
