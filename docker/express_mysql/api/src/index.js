@@ -7,7 +7,7 @@ const {
 } = require('./db.js')
 
 const app = express()
-const port = 3000
+const port = 3611
 // This line is necessary to parse the request body
 app.use(express.json())
 
@@ -104,3 +104,19 @@ app.use((req, res) => {
 app.use((req, res) => {
   res.status(400).send('no endpoint was found')
 })
+
+/**
+ * @swagger
+ * tags:
+ *   name: Blogs
+ *   description: Endpoints para manejar blogs
+ */
+/**
+ * @swagger
+ * /:
+ *   get:
+ *     summary: Retorna un saludo de bienvenida
+ *     responses:
+ *       '200':
+ *         description: Retorna el mensaje de bienvenida.
+ */
