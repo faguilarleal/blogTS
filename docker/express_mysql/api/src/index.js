@@ -1,12 +1,6 @@
 const express = require('express')
 const cors = require('cors') // Importa el módulo de CORS
 
-// const swaggerJSDoc = require('swagger-jsdoc')
-// eslint-disable-next-line import/no-extraneous-dependencies
-const swaggerUi = require('swagger-ui-express')
-// Importa la configuración de Swagger que cree
-
-const specs = require('./swaggerConfig.js')
 
 const {
   getAllBlogs, createBlog, deleteBlog, update, getBlog,
@@ -17,9 +11,6 @@ const port = 3000
 // This line is necessary to parse the request body
 app.use(express.json())
 
-// SWAGER
-// Usa Swagger UI para mostrar la documentación generada por Swagger
-app.use('/docs', swaggerUi.serve, swaggerUi.setup(specs))
 
 // cors options for development
 const corsOptions = {
@@ -35,15 +26,7 @@ app.listen(port, () => {
 app.get('/', (req, res) => {
   res.send('Estas dentro de la api!')
 })
-/**
- * @swagger
- * /blogs:
- *   get:
- *     description: Obtiene todos los blogs
- *     responses:
- *       200:
- *         description: Éxito
- */
+
 
 app.get('/blogs', async (req, res) => {
   try {
@@ -121,19 +104,3 @@ app.use((req, res) => {
 app.use((req, res) => {
   res.status(400).send('no endpoint was found')
 })
-
-/**
- * @swagger
- * tags:
- *   name: Blogs
- *   description: Endpoints para manejar blogs
- */
-/**
- * @swagger
- * /:
- *   get:
- *     summary: Retorna un saludo de bienvenida
- *     responses:
- *       '200':
- *         description: Retorna el mensaje de bienvenida.
- */
