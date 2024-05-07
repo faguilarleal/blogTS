@@ -1,5 +1,5 @@
 version: '1'
-name: blog-app
+name: blog-app-francis
 services:
   mysql:
     build: ./mysql
