@@ -15,7 +15,7 @@ function Editar(){
     const [autor, setAutor] = useState('')
 
 
-    const {info} = useApi('http://127.0.0.1:3000/blogs/'+idActual, 'GET', true)
+    const {info} = useApi('http://uwu-guate.site:3611/blogs/'+idActual, 'GET', true)
 
     React.useEffect(() => {
         console.log('imprimir',info, idActual)
@@ -33,11 +33,11 @@ function Editar(){
         if (update){
             setUpdate(false)
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+     
     }, [update])
 
 
-    useApi('http://127.0.0.1:3000/blogs/'+idActual, 'PUT', update, {title: titulo, author: autor, content: contenido, imagen: imagen})
+    useApi('http://uwu-guate.site:3611/blogs/'+idActual, 'PUT', update, {title: titulo, author: autor, content: contenido, imagen: imagen})
 
 
     const handleSubmit = () => {

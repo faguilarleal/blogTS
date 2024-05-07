@@ -27,16 +27,15 @@ function CardAdmin(props) {
         if(eliminar){
             setElimianr(false)
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+     
     }, [eliminar])
 
-    useApi('http://127.0.0.1:3000/blogs/'+props.id, 'DELETE', eliminar, {id: props.id})
+    useApi('http://uwu-guate.site:3611/blogs/'+props.id, 'DELETE', eliminar, {id: props.id})
 
 
     const deleteArticle = () =>{
         setElimianr(true)
         alert('Articulo eliminado '+props.id)
-        window.location.reload();
     }
 
     

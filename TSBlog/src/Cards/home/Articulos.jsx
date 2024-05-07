@@ -13,7 +13,7 @@ function Articulos() {
     const {ruta, setRuta} = React.useContext(rutaContext)
     const [loading, setLoading] = React.useState(true)
 
-    const {info } = useApi('http://127.0.0.1:3000/blogs', 'GET', true)
+    const {info } = useApi('http://uwu-guate.site:3611/blogs', 'GET', true)
     
     console.log('loadinggggg ',loading)
 

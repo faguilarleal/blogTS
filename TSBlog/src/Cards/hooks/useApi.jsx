@@ -6,6 +6,8 @@ export const useApi = (url, method, trigger= false, data = null) => {
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
 
+    
+
     const fetchData = async () => {
         try {
             let result = await axios({url, method, data})

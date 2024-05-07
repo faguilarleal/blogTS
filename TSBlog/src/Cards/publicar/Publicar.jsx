@@ -1,16 +1,13 @@
 import { useEffect, useState } from 'react';
 import './Publicar.css';
 import { useApi } from '../hooks/useApi';
-// import axios from 'axios'
-// import { useApi } from '../hooks/useApi';
 
 function Publicar() {
 
     const [lista, setLista] = useState({})
     const [listo, setListo] = useState(false)
-    const fechaHoraActual = new Date().toISOString;
 
-    useApi('http://127.0.0.1:3000/blogs', 'POST', listo, {title: lista.title, author: lista.author, content: lista.content, imagen: lista.imagen})
+    useApi('http://uwu-guate.site:3611/blogs', 'POST', listo, {title: lista.title, author: lista.author, content: lista.content, imagen: lista.imagen})
     console.log('listo', listo) 
 
     const [titulo, setTitulo] = useState('');
@@ -20,7 +17,7 @@ function Publicar() {
     console.log('img', imagen)
 
    useEffect(() => {
-        setLista({title:titulo, author: autor, content: contenido, imagen:imagen, time: fechaHoraActual })
+        setLista({title:titulo, author: autor, content: contenido, imagen:imagen })
     }, [titulo, contenido, autor, imagen])
 
     useEffect(() => {
@@ -36,7 +33,6 @@ function Publicar() {
             setListo(true)
             console.log('Publicado', listo)
             alert('Articulo publicado')
-            window.location.reload();
         }
     }
     

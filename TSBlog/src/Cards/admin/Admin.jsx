@@ -7,7 +7,7 @@ import React from 'react';
 
 function Admin() {
     const {setLog} = React.useContext(LogContext)
-    const {info, loading } = useApi('http://127.0.0.1:3000/blogs', 'GET', true)
+    const {info, loading } = useApi('http://uwu-guate.site:3611/blogs', 'GET', true)
     const {ruta, setRuta} = React.useContext(rutaContext)
     
 

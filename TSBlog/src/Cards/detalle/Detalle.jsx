@@ -6,7 +6,7 @@ import { useApi } from '../hooks/useApi';
 function Detalle() { 
 
     const {idActual} = useContext(idContext)
-    const {info} = useApi('http://127.0.0.1:3000/blogs/'+idActual, 'GET', true)
+    const {info} = useApi('http://uwu-guate.site:3611/blogs/'+idActual, 'GET', true)
 
 
     return (
