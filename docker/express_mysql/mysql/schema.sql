@@ -13,6 +13,5 @@ CREATE TABLE IF NOT EXISTS blogs (
     title VARCHAR(255) NOT NULL,
     author VARCHAR(255) NOT NULL,
     content TEXT NOT NULL, 
-    imagen TEXT,
-    time datetime not null
+    imagen TEXT
 );
