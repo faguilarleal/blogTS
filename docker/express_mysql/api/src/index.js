@@ -105,18 +105,3 @@ app.use((req, res) => {
   res.status(400).send('no endpoint was found')
 })
 
-/**
- * @swagger
- * tags:
- *   name: Blogs
- *   description: Endpoints para manejar blogs
- */
-/**
- * @swagger
- * /:
- *   get:
- *     summary: Retorna un saludo de bienvenida
- *     responses:
- *       '200':
- *         description: Retorna el mensaje de bienvenida.
- */
