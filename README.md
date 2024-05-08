@@ -26,8 +26,6 @@ Contraseña: 123
 ```bash
 npm install
 ```
-or
-
 Ejecuta el servidor de desarrollo.  
 ```bash
 npm run dev
