@@ -14,7 +14,8 @@ app.use(express.json())
 
 // cors options for development
 const corsOptions = {
-  origin: 'http://localhost:5173',
+  // origin: 'http://localhost:5173',
+  origin: 'http://uwu-guate.site:3711',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
 }
 app.use(cors(corsOptions))
