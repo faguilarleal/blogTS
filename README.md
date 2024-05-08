@@ -20,22 +20,19 @@ Contraseña: 123
 * Vite y React para el desarrollo del frontend.
 * La estructura del frontend incluye carpetas de componentes como cards para organizar los diferentes elementos visuales.
 
-## Instrucciones de Ejecución
+## Instrucciones de Ejecución localmente
 1. Clona el repositorio desde URL del repositorio.
 2. Instala las dependencias utilizando `npm` o `yarn` en la raíz del proyecto.
 ```bash
 npm install
 ```
 or
-```bash
-yarn
-```
+
 Ejecuta el servidor de desarrollo.  
 ```bash
 npm run dev
 ```
-```bash
-yarn dev
-```
 
-Accede al blog desde tu navegador utilizando la dirección proporcionada anteriormente.
+## Instrucciones de acceso al blog publicado
+Accede al blog desde tu navegador utilizando la dirección proporcionada anteriormente. [aquí](http://uwu-guate.site:3711/home)
+
